@@ -41,6 +41,14 @@ class HabitacionController extends Controller
         return redirect()->route('ingresar')->with('success', 'Registro realizado exitosamente');
     }
 
+    public function Mostrar()
+    {
+        $datos['Habitaciones']=Habitacion::paginate(10);
+        return view('Habitacion.MostrarHabitacion',$datos);
+
+    }
+
+
 
 
 
@@ -77,5 +85,10 @@ class HabitacionController extends Controller
     }
 
 
+    public function Mostrartipo()
+    {
+        $datos['Tipos']=Tipo_Habitacion::paginate(10);
+        return view('Habitacion.MostrarTipo',$datos);
 
+    }
 }

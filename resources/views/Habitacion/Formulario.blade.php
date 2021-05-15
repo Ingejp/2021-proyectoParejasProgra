@@ -87,7 +87,7 @@
             <div class="row">
                 <div class="col-6 offset-3">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="#" class="btn btn-danger">Cancelar</a>
+                    <a href="{{route('mostrar')}}" class="btn btn-danger">Cancelar</a>
                 </div>
             </div>
         </form>
