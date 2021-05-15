@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/fullcalendar',[RegistroController::class , 'index'])->name('inicio-fullcalendar');
+Route::post('/registrar-fullcalendar',[RegistroController::class , 'register'])->name('registrar-fullcalendar');
 
 Route::get('/', function () {
     return view('welcome');
