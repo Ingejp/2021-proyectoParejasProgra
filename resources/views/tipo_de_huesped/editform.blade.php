@@ -5,13 +5,13 @@
         <div class="col-md-7 mt-5">
 
             <!-- mesajes de confirmacion -->
-            @if(session('guardado'))
+            @if(session('modificado'))
                 <div class="alert alert-success">
-                    {{session('guardado')}}
+                    {{session('modificado')}}
                 </div>
             @endif
 
-            <!-- errores de validaciones -->
+        <!-- errores de validaciones -->
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -21,29 +21,31 @@
 
                     </ul>
                 </div>
-            @endif
-            <!--fin error -->
+        @endif
+        <!--fin error -->
             <div class="card">
-                <form action="{{url('/savep')}}" method="post">
-                    @csrf
+                <form action="{{route('edith',$tipo_de_huesped->id)}}" method="post">
+                    @csrf @method('PATCH')
                     <div class="card-header text-center">
-                        Agragar tipo de pago
+                        Modificar tipo de huesped
                     </div>
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="nombre" class="col-5">Nombre </label>
-                            <input id="nombre" type="text" name="nombre" class="form-control col-md-9">
+                            <label for="nombre" class="col-5">Nombre del Huesped</label>
+                            <input id="nombre" type="text" name="nombre" class="form-control col-md-9" value="{{$tipo_de_pago->nombre}}">
+
                         </div>
-                                                 <br>
+
+                        <br>
                         <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-5 offset-4">Guardar</button>
+                            <button type="submit" class="btn btn-success col-md-5 offset-4">Modificar</button>
                         </div>
                     </div>
 
                 </form>
 
             </div>
-            <a class="btn btn-light btn-xs mt-5" href="{{url('/listp')}}">Lista de Pagos</a>
+            <a class="btn btn-light btn-xs mt-5" href="{{url('/listh')}}">Lista de huesped</a>
         </div>
     </div>
 </div>

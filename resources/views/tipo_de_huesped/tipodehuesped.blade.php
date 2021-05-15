@@ -24,10 +24,10 @@
             @endif
             <!--fin error -->
             <div class="card">
-                <form action="{{url('/savep')}}" method="post">
+                <form action="{{url('/saveh')}}" method="post">
                     @csrf
                     <div class="card-header text-center">
-                        Agragar tipo de pago
+                        Agregar tipo de Huesped
                     </div>
                     <div class="card-body">
                         <div class="row form-group">
@@ -43,7 +43,7 @@
                 </form>
 
             </div>
-            <a class="btn btn-light btn-xs mt-5" href="{{url('/listp')}}">Lista de Pagos</a>
+            <a class="btn btn-light btn-xs mt-5" href="{{url('/listh')}}">Lista de huesped</a>
         </div>
     </div>
 </div>
