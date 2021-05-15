@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Habitacion extends Model
 {
+
     protected $table='habitacion';
     public $timestamps=false;
     protected $fillable=[
@@ -14,4 +15,11 @@ class Habitacion extends Model
     ];
 
     protected $primaryKey='idhabitacion';
+
+    use HasFactory;
+
+    protected $guarded = 'id_habitacion';
+    public $incrementing = true;
+
+
 }
