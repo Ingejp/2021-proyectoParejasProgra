@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('get-tarifa', [\App\Http\Controllers\Tarifa::class, 'getAll'])->name('api-getAll');
+Route::put('save-tarifa', [\App\Http\Controllers\Tarifa::class, 'store'])->name('api-saveProduct');
