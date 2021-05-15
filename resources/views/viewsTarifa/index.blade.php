@@ -7,7 +7,7 @@
     <div class="container">
         <div class="card shadow-lg">
             <div class="card-header"   style="color: #1b1e21; background-color: #4aa0e6; font-weight: bold">
-                <i class="fas fa-warehouse fa-1x"></i>Clientes
+                <i class="fas fa-warehouse fa-1x"></i>Tarifas
             </div>
             <div class="card-body">
 
@@ -40,7 +40,7 @@
                             <td>{{$varTarifa->nombre_tipo_habitacion}}</td>
 
                             <td>
-                                <a href="{{route('tarifa.edit',['tarifa'=>$varTarifa])}}">
+                                <a href="#">
                                     <button type="button" class="btn btn-outline-success">{{__('Editar')}}</button>
                                 </a>
                             </td>

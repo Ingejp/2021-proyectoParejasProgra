@@ -50,20 +50,11 @@ class Tarifa extends Controller
 
     }
 
-    public function deleteClient($id){
-        $client= $this->getClient($id);
-        $client->delete();
-        return $client;
-    }
-
-    public function getClient($id){
-        $client=ModelTarifa::find($id);
-        return $client;
-    }
-
-    public function edit(Request $request, ModelTarifa $varTarifa)
+    public function edit(Request $request, ModelTarifa $client)
     {
-        $varTipoHabitacion = ModelTipoHabitacion::all();
-        return view('viewTarifa.edit', compact('varTarifa', 'varTipoHabitacion'));
+        $varTipoHabitacion = ModelTarifa::all();
+        $varGender = ModelGender::all();
+        $varDepartament = ModelDepartament::all();
+        return view('viewClient.edit', compact('client', 'varCategory', 'varDepartament', 'varGender'));
     }
 }
