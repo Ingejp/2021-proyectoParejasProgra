@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\habitacion;
 use App\Models\Tipo_Habitacion;
 use Illuminate\Http\Request;
-use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\DB;
 
 class HabitacionController extends Controller
 {
@@ -19,9 +19,9 @@ class HabitacionController extends Controller
     }
 
     public function ingreshabi(){
-        $TiposHabitaciones = Tipo_Habitacion::all();
+        $tipos = Tipo_Habitacion::all();
 
-        return view('Habitacion.Formulario', compact('TiposHabitaciones'));
+        return view('Habitacion.Formulario', compact('tipos'));
     }
 
     public function savehabita(Request $request){

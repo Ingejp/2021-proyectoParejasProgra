@@ -79,7 +79,7 @@
                         <label>Tipo de Habitacion</label>
                         <select name="tipo" class="form-control" >
                             <option value="">--Seleccione--</option>
-                            @foreach( $TiposHabitaciones as $tipo)
+                            @foreach( $tipos as $tipo)
                                 <option value="{{$tipo->id_tipo_habitacion}}"> {{$tipo->tipo_habitacion}}  </option>
                             @endforeach
 
