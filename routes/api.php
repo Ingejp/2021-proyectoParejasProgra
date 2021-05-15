@@ -17,5 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::get('get-tarifa', [\App\Http\Controllers\Tarifa::class, 'getAll'])->name('api-getAll');
 Route::put('save-tarifa', [\App\Http\Controllers\Tarifa::class, 'store'])->name('api-saveProduct');
+
+Route::get('get-huesped', ['\App\Http\Controllers\HuespedController', 'getAll'])->name('api-getAll');
+Route::put('save-huesped', ['\App\Http\Controllers\HuespedController', 'saveHuesped'])->name('api-saveHuesped');
+Route::delete('delete-huesped/{id}', ['\App\Http\Controllers\HuespedController', 'deleteHuesped2'])->name('api-deleteHuesped2');
+Route::post('edit-huesped/{id}', ['\App\Http\Controllers\HuespedController', 'editHuesped2'])->name('api-editHuesped');
+Route::get('show-huesped', ['\App\Http\Controllers\HuespedController', 'showHuesped'])->name('api-showHuesped');
+

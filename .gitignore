@@ -11,6 +11,15 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-composer.lock
-.idea/workspace.xml
+.idea/.gitignore
 .idea/2021-proyectoParejasProgra.iml
+.idea/modules.xml
+.idea/php.xml
+.idea/phpunit.xml
+.idea/vcs.xml
+.idea/php.xml
+.idea/modules.xml
+.idea/workspace.xml
+.env.example
+composer.lock
+
