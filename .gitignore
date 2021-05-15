@@ -11,7 +11,12 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.idea/vcs.xml
+.idea/phpunit.xml
+.idea/php.xml
+.idea/modules.xml
+.idea/2021-proyectoParejasProgra.iml
+.idea/.gitignore
 .idea/workspace.xml
 .env.example
-.idea/php.xml
 composer.lock
