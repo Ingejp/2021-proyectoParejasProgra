@@ -41,6 +41,13 @@
             <td>{{$habitacion->numero_habitacion}}</td>
             <td>{{$habitacion->piso}}</td>
             <td>{{$habitacion->tipo_habitacion}}</td>
+            <td>
+                <form action="{{ route('eliminar',$habitacion->idhabitacion) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="eliminar">
+                </form>
+            </td>
 
 
         </tr>

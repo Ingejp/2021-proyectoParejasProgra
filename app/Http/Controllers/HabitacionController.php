@@ -48,6 +48,11 @@ class HabitacionController extends Controller
 
     }
 
+    public function eliminarhab(Habitacion $habitacion)
+    {
+        $habitacion->delete();
+        return back()->with('succes', 'cliente eliminado correctamento');
+    }
 
 
 
@@ -91,4 +96,10 @@ class HabitacionController extends Controller
         return view('Habitacion.MostrarTipo',$datos);
 
     }
+    public function eliminarti(Tipo_Habitacion $tipo)
+    {
+        $tipo->delete();
+        return back()->with('succes', 'cliente eliminado correctamento');
+    }
+
 }

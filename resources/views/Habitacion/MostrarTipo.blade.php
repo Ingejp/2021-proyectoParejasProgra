@@ -39,6 +39,14 @@
             <td>{{$tipo->id_tipo_habitacion}}</td>
             <td>{{$tipo->tipo_habitacion}}</td>
             <td>{{$tipo->descripcion}}</td>
+            <td>
+                <form action="{{ route('eliminartipo',$tipo->id_tipo_habitacion) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="eliminar">
+                </form>
+            </td>
+
 
 
 
