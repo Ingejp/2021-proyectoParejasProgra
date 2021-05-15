@@ -21,6 +21,16 @@ Route::post('/registrar-fullcalendar',[RegistroController::class , 'register'])-
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
+Route::get('/huespedes/index', [\App\Http\Controllers\HuespedController::class, 'registerHuesped'])->name('huesped.index');
+Route::post('/huespedes/registrar', [\App\Http\Controllers\HuespedController::class, 'saveHuesped'])->name('huesped.registrarHuesped');
+Route::get('/huespedes/lista', [\App\Http\Controllers\HuespedController::class, 'showHuesped'])->name('huesped.listarHuesped');
+Route::get('/huespedes/edit/{id}',[\App\Http\Controllers\HuespedController::class,'edit'])->name('huesped.editHuesped');
+Route::post('/huespedes/update/{id}',[\App\Http\Controllers\HuespedController::class,'update'])->name('huesped.updateHuesped');
+Route::get('/huespedes/delete/{id}',[\App\Http\Controllers\HuespedController::class,'deleteHuesped'])->name('hueped.deleteHuesped');
+
+
+=======
 
 
 Auth::routes();
@@ -28,4 +38,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //comentario para modificar archivo en clase de ramas de git
+>>>>>>> c47883523ac1248f1f4edbadef7990cf09b2011a
 
