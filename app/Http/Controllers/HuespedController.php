@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HuespedFormRequest;
 use App\Models\Huesped;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -11,7 +10,7 @@ use DB;
 
 class HuespedController extends Controller
 {
- public function getAll(){
+    public function getAll(){
         $huesped=Huesped::all();
         return $huesped;
     }
@@ -34,11 +33,11 @@ class HuespedController extends Controller
 
     public function edit($id)
     {
-        return view("editarHuesped",["huesped"=>Huesped::findOrFail($id)]);
+        return view('editarHuesped',["huesped"=>Huesped::findOrFail($id)]);
     }
-    public function update(HuespedFormRequest $request,$id)
+    public function update($request,$id)
     {
-        $huesped=Huesped::findOrFail($id);
+        $huesped=Huesped::find($id);
         $huesped->nombre_huesped=$request->get('nombre_huesped');
         $huesped->telefono_huesped=$request->get('telefono_huesped');
         $huesped->direccion_huesped=$request->get('direccion_huesped');
@@ -48,9 +47,8 @@ class HuespedController extends Controller
         $huesped->dpi_huesped=$request->get('dpi_huesped');
         $huesped->foto_huesped=$request->get('foto_huesped');
         $huesped->update();
-        return Redirect::to('huesped/lista');
+        return Redirect::to('huespedes/lista');
     }
-
 
     public function editHuesped2($id, Request $request){
         $huespe = $this->getHuesped($id);
