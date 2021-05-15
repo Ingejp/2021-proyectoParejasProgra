@@ -23,5 +23,5 @@ Route::get('/huespedes/edit/{id}',[\App\Http\Controllers\HuespedController::clas
 Route::put('/huespedes/update/{id}',[\App\Http\Controllers\HuespedController::class,'update'])->name('huesped.updateHuesped');
 Route::get('/huespedes/delete/{id}',[\App\Http\Controllers\HuespedController::class,'deleteHuesped'])->name('hueped.deleteHuesped');
 
-Route::resource('huesped','HuespedController');
+
 
