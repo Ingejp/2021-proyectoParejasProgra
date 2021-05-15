@@ -32,38 +32,69 @@
 <div id="calendar">
 
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <form class="modal-content" action="{{url('registrar')}}" method="POST">
+            @csrf
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ingrese huespedes</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" >
+                <label for="nombre">Ingrese Nombre</label>
+                <input id="nombre" class="form-control" name="nombre" type="text" required>
+
+                <label for="apellido">Ingrese Apellido</label>
+                <input id="apellido" class="form-control" name="apellido" type="text" required>
+
+                <label for="dpi">Ingrese DPI</label>
+                <input id="dpi" class="form-control" name="dpi" type="number" required>
+
                 <label for="habitacion">Elija Habitacion</label>
-                <select id="habitacion" class="form-control">
-                    
+                <select id="habitacion" oninput="getTariff()" name="id_habitacion" class="form-control">
+                    @if(count($habitaciones))
+                    @foreach($habitaciones as $habitacion)
+                        <option value="{{$habitacion->id_habitacion}}" name="{{$habitacion->precio_regular}}">{{$habitacion->numero_habitacion . ' - ' . $habitacion->piso . ' Piso' }}</option>
+                    @endforeach
+                    @else
+                        <option selected hidden>Sin habitaciones</option>
+                    @endif
                 </select>
-               <input>
+                <label for="tipo_pago">Elija tipo de pago</label>
+                <select id="tipo_pago" name="id_tipo_pago"  class="form-control">
+
+                        @foreach($pagos as $pago)
+                            <option value="{{$pago->id_tipo_pago}}">{{$pago->nombre}}</option>
+                        @endforeach
+
+                </select>
+                <input id="inicio_fecha" name="inicio_fecha" type="hidden">
+                <input id="salida_fecha" name="salida_fecha" type="hidden">
+                <input id="total" name="total" type="hidden">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </body>
 
 <script>
-
+    let fecha_inicio
+    let fecha_salida
+    let Difference_In_Time
+    let Difference_In_Days
+    function getTariff() {
+        let habitacion = document.getElementById('habitacion')
+        let opcion = habitacion.options[habitacion.selectedIndex]
+        document.getElementById('total').value = Difference_In_Days * parseInt(opcion.getAttribute('name'))
+    }
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -74,7 +105,19 @@
             editable: true,
             eventLimit: true,
             select: function(info) {
-                alert('selected ' + info.startStr + ' to ' + info.endStr);
+                $('#exampleModal').modal('toggle');
+                fecha_inicio = info.startStr
+                fecha_salida = info.endStr
+                document.getElementById('exampleModalLabel').innerHTML = "Ingrese huespedes "+fecha_inicio+ " - "+fecha_salida
+                var date1 = new Date(fecha_inicio);
+                var date2 = new Date(fecha_salida);
+                 Difference_In_Time = date2.getTime() - date1.getTime();
+                 Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                let habitacion = document.getElementById('habitacion')
+                let opcion = habitacion.options[habitacion.selectedIndex]
+                document.getElementById('inicio_fecha').value = fecha_inicio
+                document.getElementById('salida_fecha').value = fecha_salida
+                document.getElementById('total').value = Difference_In_Days * parseInt(opcion.getAttribute('name'))
             }
         });
 

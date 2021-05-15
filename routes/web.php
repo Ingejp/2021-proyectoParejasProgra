@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('registroHabitacion.callendar');
-});
+Route::get('/',[RegistroController::class , 'index'])->name('inicio');
+Route::post('/registrar',[RegistroController::class , 'register'])->name('registrar');
