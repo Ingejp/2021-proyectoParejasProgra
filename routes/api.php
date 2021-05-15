@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('get-habitacion',[\App\Http\Controllers\HabitacionController::class, 'gethabitacion'])->name('api-habitacion');
+Route::put('guardar-habitacion',[\App\Http\Controllers\HabitacionController::class, 'savehabita'])->name('api-guardar');
+Route::delete('eliminar-habitacion/{id}',[\App\Http\Controllers\HabitacionController::class, 'deletehabi'])->name('api-eliminar');
+Route::post('editar-habitacion/{id}',[\App\Http\Controllers\HabitacionController::class, 'edithabi'])->name('api-editar');
+

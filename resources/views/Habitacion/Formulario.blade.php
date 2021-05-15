@@ -69,6 +69,7 @@
                     <div class="form-group">
                         <label>Piso</label>
                         <input type="number" name="piso" class="form-control" >
+                        <input type="hidden" name="control" value="form">
                     </div>
                 </div>
             </div>
@@ -78,6 +79,9 @@
                         <label>Tipo de Habitacion</label>
                         <select name="tipo" class="form-control" >
                             <option value="">--Seleccione--</option>
+                            @foreach( $TiposHabitaciones as $tipo)
+                                <option value="{{$tipo->id_tipo_habitacion}}"> {{$tipo->tipo_habitacion}}  </option>
+                            @endforeach
 
 
                         </select>
