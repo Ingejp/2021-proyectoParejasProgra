@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EstatusHabitacion;
 use App\Models\Habitacion;
-use App\Models\Huesped;
+use App\Models\RegistroHuesped;
 use App\Models\TipoPago;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +31,7 @@ class RegistroController extends Controller
            'inicio_fecha' => 'required',
            'salida_fecha' => 'required',
        ]);
-       Huesped::insert($data);
+       RegistroHuesped::insert($data);
        $habitacion = EstatusHabitacion::where('id_habitacion','=',$data['id_habitacion'])->first();
        $habitacion->id_estatus = '2';
        $habitacion->save();
