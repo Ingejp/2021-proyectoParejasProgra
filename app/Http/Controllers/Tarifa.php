@@ -50,11 +50,19 @@ class Tarifa extends Controller
 
     }
 
+
     public function edit(Request $request, ModelTarifa $client)
     {
         $varTipoHabitacion = ModelTarifa::all();
-        $varGender = ModelGender::all();
-        $varDepartament = ModelDepartament::all();
-        return view('viewClient.edit', compact('client', 'varCategory', 'varDepartament', 'varGender'));
+        return view('viewClient.edit', compact('client', 'varTipoHabitacion'));
+    }
+
+    public function update(requestTarifa $request, ModelTarifa $tarifa)
+    {
+        $data = $request->validated();
+        $tarifa->fill($data);
+        $tarifa->save();
+        return redirect()->route('tarifa.index')->with('status', 'Datos actualizados');
+
     }
 }

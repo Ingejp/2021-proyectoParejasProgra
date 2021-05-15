@@ -30,14 +30,14 @@
                         </thead>
                     @endif
                     <tbody>
-                    @forelse($joinDatosEnviados as $varTarifa)
+                    @forelse($joinDatosEnviados as $tarifa)
                         <tr class="text-center">
 
-                            <td>{{$varTarifa->nombre_tarifa}}</td>
-                            <td>{{$varTarifa->precio_regular}}</td>
-                            <td>{{$varTarifa->precio_ofertado}}</td>
-                            <td>{{$varTarifa->precio_alta_ocupacion}}</td>
-                            <td>{{$varTarifa->nombre_tipo_habitacion}}</td>
+                            <td>{{$tarifa->nombre_tarifa}}</td>
+                            <td>{{$tarifa->precio_regular}}</td>
+                            <td>{{$tarifa->precio_ofertado}}</td>
+                            <td>{{$tarifa->precio_alta_ocupacion}}</td>
+                            <td>{{$tarifa->nombre_tipo_habitacion}}</td>
 
                             <td>
                                 <a href="#">
