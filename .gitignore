@@ -17,3 +17,6 @@ yarn-error.log
 .idea/modules.xml
 .idea/2021-proyectoParejasProgra.iml
 .idea/.gitignore
+.idea/workspace.xml
+.env.example
+composer.lock

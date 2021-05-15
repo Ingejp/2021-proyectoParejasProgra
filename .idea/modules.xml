@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/2021-proyectoParejasProgra.iml" filepath="$PROJECT_DIR$/.idea/2021-proyectoParejasProgra.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/ejercicio-parejas.iml" filepath="$PROJECT_DIR$/.idea/ejercicio-parejas.iml" />
+>>>>>>> f5f5c61036993d41e73329deb9694fe622079890
     </modules>
   </component>
 </project>
