@@ -20,7 +20,7 @@ Route::get('/huespedes/index', [\App\Http\Controllers\HuespedController::class, 
 Route::post('/huespedes/registrar', [\App\Http\Controllers\HuespedController::class, 'saveHuesped'])->name('huesped.registrarHuesped');
 Route::get('/huespedes/lista', [\App\Http\Controllers\HuespedController::class, 'showHuesped'])->name('huesped.listarHuesped');
 Route::get('/huespedes/edit/{id}',[\App\Http\Controllers\HuespedController::class,'edit'])->name('huesped.editHuesped');
-Route::put('/huespedes/update/{id}',[\App\Http\Controllers\HuespedController::class,'update'])->name('huesped.updateHuesped');
+Route::post('/huespedes/update/{id}',[\App\Http\Controllers\HuespedController::class,'update'])->name('huesped.updateHuesped');
 Route::get('/huespedes/delete/{id}',[\App\Http\Controllers\HuespedController::class,'deleteHuesped'])->name('hueped.deleteHuesped');
 
 

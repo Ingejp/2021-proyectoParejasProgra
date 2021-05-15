@@ -40,7 +40,7 @@
                 </div>
             @endif
 
-            <form action="{{route('huesped.registrarHuesped')}}" method="POST">
+            <form action="{{route('huesped.registrarHuesped')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
@@ -105,7 +105,12 @@
                     <div class="col-6 offset-3">
                         <div class="form-group">
                             <label>Foto</label>
-                            <input type="text" name="foto_huesped" class="form-control" >
+                            @csrf
+                            <div cla="form-group">
+                                <input type="file" name="foto_huesped" id="foto_huesped" class="form-control" accept="image/*" >
+
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -39,7 +39,7 @@
                     </ul>
                 </div>
             @endif
-            {!!Form::model($huesped,['method'=>'PATCH','route'=>['huesped.updateHuesped',$huesped->id_huesped]])!!}
+            {!!Form::model($huesped,['method'=>'POST','route'=>['huesped.updateHuesped',$huesped->id_huesped]])!!}
             {{Form::token()}}
 
             <div class="row">
@@ -103,7 +103,8 @@
                 <div class="col-6 offset-3">
                     <div class="form-group">
                         <label>Foto</label>
-                        <input type="text" name="foto_huesped" class="form-control" value="{{$huesped->foto_huesped}}">
+                        <input type="file" name="foto_huesped" id="foto_huesped" class="form-control" accept="image/*" value="{{$huesped->foto_huesped}}">
+
                     </div>
                 </div>
             </div>

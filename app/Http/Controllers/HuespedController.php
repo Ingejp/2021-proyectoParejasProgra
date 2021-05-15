@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HuespedFormRequest;
 use App\Models\Huesped;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -35,8 +36,9 @@ class HuespedController extends Controller
     {
         return view('editarHuesped',["huesped"=>Huesped::findOrFail($id)]);
     }
-    public function update($request,$id)
+    public function update(HuespedFormRequest $request,$id)
     {
+
         $huesped=Huesped::find($id);
         $huesped->nombre_huesped=$request->get('nombre_huesped');
         $huesped->telefono_huesped=$request->get('telefono_huesped');
@@ -58,10 +60,14 @@ class HuespedController extends Controller
 
 
     public function registerHuesped(){
+
+
         return view('registrarHuesped');
     }
 
     public function showHuesped(){
+
+
         $huesped=DB::table('huesped')->where('nombre_huesped','LIKE','%'.'%')
             ->orderBy('nombre_huesped','asc')
             ->paginate(7);
@@ -112,6 +118,7 @@ class HuespedController extends Controller
                     'dpi_huesped' => $data['nit_huesped'],
                     'foto_huesped' => $data['foto_huesped'],
 
+
                 ]);
 
             } catch (QueryException $queryException) { //capturamos el erro en el catch
@@ -125,6 +132,7 @@ class HuespedController extends Controller
                 'nombre_huespued' => 'INGRESADO',
                 'telefono_huespued' => 'Guardado Exitosamente',
             ]);
+
         }
     }
 }
