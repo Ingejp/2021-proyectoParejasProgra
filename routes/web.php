@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::patch('/editp/{id}','Tipo_de_pagoController@edit')->name('editp');
+//formulario pago para editar
+Route::get('/editformp/{id}','Tipo_de_pagoController@editform')->name('editformp');
+
+//listar Pago
+Route::get('/listp','Tipo_de_pagoController@list');
+//formulario Pago
+Route::get('/formp', 'Tipo_de_pagoController@studentform');
+//guardar pago
+Route::post('/savep', 'Tipo_de_pagoController@save')->name('savep');
+
