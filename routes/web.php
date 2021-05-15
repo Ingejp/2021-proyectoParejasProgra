@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Habitacion.Formulario');
 });
+Route::get('/Formulario/registrar', [\App\Http\Controllers\HabitacionController::class, 'ingreshabi'])->name('ingresar');
+Route::post('/Formulario/guardar', [\App\Http\Controllers\HabitacionController::class, 'savehabita'])->name('guardar');
+
+Route::get('/Formulario/registrartipo', [\App\Http\Controllers\HabitacionController::class, 'ingrestipo'])->name('ingresartipo');
+Route::post('/Formulario/guardartipo', [\App\Http\Controllers\HabitacionController::class, 'savetipo'])->name('guardartipo');
