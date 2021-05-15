@@ -31,8 +31,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="" class="col-5">Nombre </label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
+                            <label for="nombre" class="col-5">Nombre </label>
+                            <input id="nombre" type="text" name="nombre" class="form-control col-md-9">
                         </div>
                                                  <br>
                         <div class="row form-group">

@@ -31,8 +31,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="" class="col-5">Nombre del Pago</label>
-                            <input type="text" name="nombre" class="form-control col-md-9" value="{{$tipo_de_pago->nombre}}">
+                            <label for="nombre" class="col-5">Nombre del Pago</label>
+                            <input id="nombre" type="text" name="nombre" class="form-control col-md-9" value="{{$tipo_de_pago->nombre}}">
 
                         </div>
 
