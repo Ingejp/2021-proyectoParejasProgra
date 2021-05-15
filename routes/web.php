@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[RegistroController::class , 'index'])->name('inicio');
-Route::post('/registrar',[RegistroController::class , 'register'])->name('registrar');
+
+Route::get('/fullcalendar',[RegistroController::class , 'index'])->name('inicio-fullcalendar');
+Route::post('/registrar-fullcalendar',[RegistroController::class , 'register'])->name('registrar-fullcalendar');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//comentario para modificar archivo en clase de ramas de git
